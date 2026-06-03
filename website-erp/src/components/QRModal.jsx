@@ -9,9 +9,7 @@ const QRModal = ({ batch, active, onClose }) => {
         if (!batch || !active || !canvasRef.current) return;
 
         const canvas = canvasRef.current;
-        const baseUrl = window.location.origin.includes('localhost')
-            ? `file:///D:/Coding/seaweed-project/qrcode_page/index.html`
-            : 'https://trace.seacell-seaweed.com';
+        const baseUrl = `${window.location.origin}/trace/index.html`;
         const qrData = `${baseUrl}?batch=${batch.id}`;
 
         const ctx = canvas.getContext('2d');
