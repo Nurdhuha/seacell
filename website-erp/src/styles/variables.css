@@ -1,0 +1,135 @@
+/* Design System Tokens - Mobile-First Responsive Seacell */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* Muted Coastal/Marine Color Palette (HSL) */
+    --color-primary-hue: 200;
+    --color-primary-sat: 95%;
+    --color-primary-lightness: 28%; /* #0284C7 (Seacell Sea Blue) */
+    
+    --color-primary: HSL(var(--color-primary-hue), var(--color-primary-sat), var(--color-primary-lightness));
+    --color-primary-light: HSL(var(--color-primary-hue), var(--color-primary-sat), 38%);
+    --color-primary-dark: HSL(var(--color-primary-hue), var(--color-primary-sat), 18%);
+    --color-primary-alpha-8: HSL(var(--color-primary-hue), var(--color-primary-sat), var(--color-primary-lightness), 0.08);
+    --color-primary-alpha-15: HSL(var(--color-primary-hue), var(--color-primary-sat), var(--color-primary-lightness), 0.15);
+
+    --color-accent-hue: 195;
+    --color-accent-sat: 90%;
+    --color-accent-lightness: 43%; /* #0EA5E9 (Seafoam Sky Blue) */
+
+    --color-accent: HSL(var(--color-accent-hue), var(--color-accent-sat), var(--color-accent-lightness));
+    --color-accent-light: HSL(var(--color-accent-hue), var(--color-accent-sat), 53%);
+    --color-accent-dark: HSL(var(--color-accent-hue), var(--color-accent-sat), 33%);
+    --color-accent-alpha-8: HSL(var(--color-accent-hue), var(--color-accent-sat), var(--color-accent-lightness), 0.08);
+    
+    --color-warning-hue: 350;
+    --color-warning-sat: 89%;
+    --color-warning-lightness: 60%; /* #F43F5E (Coral Rose Red) */
+
+    --color-warning: HSL(var(--color-warning-hue), var(--color-warning-sat), var(--color-warning-lightness));
+    --color-warning-light: HSL(var(--color-warning-hue), var(--color-warning-sat), 70%);
+    --color-warning-dark: HSL(var(--color-warning-hue), var(--color-warning-sat), 45%);
+    --color-warning-alpha-8: HSL(var(--color-warning-hue), var(--color-warning-sat), var(--color-warning-lightness), 0.08);
+
+    --color-success-hue: 150;
+    --color-success-sat: 60%;
+    --color-success-lightness: 35%; /* #16A34A (Muted Emerald Green) */
+
+    --color-success: HSL(var(--color-success-hue), var(--color-success-sat), var(--color-success-lightness));
+    --color-success-light: HSL(var(--color-success-hue), var(--color-success-sat), 45%);
+    --color-success-alpha-8: HSL(var(--color-success-hue), var(--color-success-sat), var(--color-success-lightness), 0.08);
+
+    /* Backgrounds & Surfaces */
+    --color-bg: HSL(210, 40%, 98%);      /* Super Soft Grey/White (#F8FAFC) */
+    --color-surface: HSL(0, 0%, 100%);
+    --color-surface-card: HSL(210, 30%, 99%);
+    --color-surface-glass: rgba(255, 255, 255, 0.85);
+    
+    /* Text Colors & Borders */
+    --color-text: HSL(215, 25%, 15%);    /* Slate Blue (#1E293B) */
+    --color-text-muted: HSL(215, 16%, 47%); /* Cool Muted Grey (#64748B) */
+    --color-text-on-primary: HSL(0, 0%, 100%);
+    --color-border: HSL(210, 20%, 94%);   /* light border (#F1F5F9) */
+
+    /* Typography Settings */
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-family-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+    /* Sizing & Borders */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-round: 50%;
+    --touch-target-min: 48px;
+
+    /* Transitions */
+    --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* -----------------------------------------------------------------
+       MOBILE-FIRST RESPONSIVE DESIGN SYSTEM TOKENS
+       Extremely compact scale optimized for narrow smartphone screens (360px).
+       Guarantees absolute layout stability without overlapping.
+       ----------------------------------------------------------------- */
+    
+    /* Compact Mobile Typography Scale (< 768px) */
+    --font-size-2xs: 9px;      /* Micro badges, indicators, step labels */
+    --font-size-xs: 10px;      /* Secondary descriptions, subtexts, environmental alarms */
+    --font-size-sm: 11px;      /* Standard body text, buttons, form inputs, filter chips */
+    --font-size-base: 12px;    /* Default card text, standard labels, list items */
+    --font-size-md: 13px;      /* Regular subtitles, elevated values, input headings */
+    --font-size-lg: 15px;      /* Card titles, wizard node headers, badge texts */
+    --font-size-xl: 17px;      /* Section headers, modal titles */
+    --font-size-title: 19px;   /* Clean main screen titles, 100% single line */
+
+    /* Mobile Spacing Scale */
+    --spacing-2xs: 2px;
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;         /* Tighter for mobile optimization */
+    --spacing-md: 12px;        /* Tighter for mobile optimization */
+    --spacing-lg: 18px;
+    --spacing-xl: 24px;
+
+    /* Mobile Card Layout Properties */
+    --card-padding: 12px;      /* Tighter card padding on mobile */
+    --shadow-sm: 0 2px 6px rgba(30, 41, 59, 0.01);
+    --shadow-md: 0 8px 20px -8px rgba(30, 41, 59, 0.04);
+    --shadow-lg: 0 16px 32px -12px rgba(30, 41, 59, 0.08);
+}
+
+/* -----------------------------------------------------------------
+   DESKTOP PREPARED ENVIRONMENT (Tablet & PC Readiness >= 1024px)
+   ----------------------------------------------------------------- */
+@media (min-width: 1024px) {
+    :root {
+        /* Desktop Typography Scale */
+        --font-size-2xs: 11px;
+        --font-size-xs: 12px;
+        --font-size-sm: 14px;
+        --font-size-base: 15px; 
+        --font-size-md: 17px;
+        --font-size-lg: 20px;
+        --font-size-xl: 24px;
+        --font-size-title: 28px;
+
+        /* Desktop Spacing Scale */
+        --spacing-2xs: 4px;
+        --spacing-xs: 8px;
+        --spacing-sm: 16px;
+        --spacing-md: 24px;
+        --spacing-lg: 32px;
+        --spacing-xl: 48px;
+
+        /* Desktop Card Layout Properties */
+        --card-padding: 24px;  
+        --shadow-sm: 0 2px 8px rgba(30, 41, 59, 0.02);
+        --shadow-md: 0 10px 30px -10px rgba(30, 41, 59, 0.05);
+        --shadow-lg: 0 20px 40px -15px rgba(30, 41, 59, 0.1);
+        
+        --radius-sm: 10px;
+        --radius-md: 18px;
+        --radius-lg: 26px;
+    }
+}

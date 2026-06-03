@@ -1,0 +1,453 @@
+/* Multi-Step Wizard Forms - Screen 2 */
+
+/* Clean Wizard Progress */
+.wizard-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding: 0 var(--spacing-sm);
+}
+
+.wizard-progress::before {
+    content: '';
+    position: absolute;
+    top: 13px;
+    left: var(--spacing-lg);
+    right: var(--spacing-lg);
+    height: 2px;
+    background: var(--color-border);
+    z-index: 1;
+}
+
+.progress-line-fill {
+    position: absolute;
+    top: 13px;
+    left: var(--spacing-lg);
+    height: 2px;
+    background: var(--color-primary);
+    z-index: 2;
+    transition: width var(--transition-normal);
+}
+
+.progress-step {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.step-node {
+    width: 26px; /* Proportional for mobile */
+    height: 26px;
+    border-radius: var(--radius-round);
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--color-text-muted);
+    transition: var(--transition-normal);
+}
+
+.step-label {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-2xs); /* Compact on mobile */
+    font-weight: 700;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Keyframes: Bubble pop bounce animation for active nodes */
+@keyframes nodePop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2) translateY(-2px); /* Bouncy pop bubble effect */
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.progress-step.active .step-node {
+    border-color: var(--color-primary);
+    background: var(--color-surface);
+    color: var(--color-primary);
+    box-shadow: 0 0 0 4px var(--color-primary-alpha-8);
+    animation: nodePop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; /* Pop bounce! */
+}
+
+.progress-step.active .step-label {
+    color: var(--color-primary);
+}
+
+.progress-step.completed .step-node {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-text-on-primary);
+}
+
+.progress-step.completed .step-label {
+    color: var(--color-text);
+}
+
+/* Wizard Steps Container */
+.wizard-steps-container {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--card-padding); /* Scales dynamically */
+    box-shadow: var(--shadow-md);
+    min-height: 250px;
+    margin-bottom: var(--spacing-md);
+}
+
+.step-title {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--spacing-xs);
+}
+
+/* Tactile Form Inputs */
+.form-group {
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-label {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.form-input {
+    min-height: var(--touch-target-min);
+    width: 100%;
+    padding: 10px var(--spacing-sm);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    outline: none;
+    transition: var(--transition-fast);
+    background-color: var(--color-surface);
+}
+
+.form-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-alpha-8);
+}
+
+/* Proportional spacing for form rows on mobile */
+.form-row {
+    display: flex;
+    flex-direction: column; /* Stacked by default for mobile-first */
+    gap: var(--spacing-sm);
+}
+
+/* Specialized Radio Tiles */
+.radio-tile-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.radio-tile-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--touch-target-min);
+    padding: 10px var(--spacing-sm);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    background: var(--color-surface);
+    transition: var(--transition-fast);
+}
+
+.radio-tile-label:active {
+    transform: scale(0.99);
+}
+
+.radio-tile-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.radio-tile-input:focus-visible + .radio-tile-label {
+    box-shadow: 0 0 0 3px var(--color-primary-alpha-15);
+    border-color: var(--color-primary);
+}
+
+.radio-tile-text {
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.radio-tile-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: var(--radius-round);
+    border: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.radio-tile-dot::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-round);
+    background: var(--color-primary);
+    transform: scale(0);
+    transition: var(--transition-fast);
+}
+
+.radio-tile-input:checked + .radio-tile-label {
+    border-color: var(--color-primary);
+    background: var(--color-primary-alpha-8);
+}
+
+.radio-tile-input:checked + .radio-tile-label .radio-tile-dot {
+    border-color: var(--color-primary);
+}
+
+.radio-tile-input:checked + .radio-tile-label .radio-tile-dot::after {
+    transform: scale(1);
+}
+
+/* Outbreak Switch Card */
+.toggle-card {
+    background: var(--color-surface-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+}
+
+.toggle-info {
+    flex: 1;
+    padding-right: var(--spacing-sm);
+}
+
+.toggle-title {
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.toggle-subtitle {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px; /* Slightly more compact on mobile */
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch input:focus-visible + .slider {
+    box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.4);
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-border);
+    transition: .3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 26px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+input:checked + .slider {
+    background-color: var(--color-warning); /* Coral Alert */
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Photo Upload */
+.upload-disclose {
+    display: none;
+    animation: fadeSlideIn var(--transition-fast) forwards;
+}
+
+.upload-disclose.active {
+    display: block;
+}
+
+.image-dropzone {
+    border: 2px dashed var(--color-warning-light);
+    background: var(--color-warning-alpha-8);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-md);
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.image-dropzone:active {
+    transform: scale(0.98);
+}
+
+.image-dropzone svg {
+    width: 28px; /* Proportional for mobile */
+    height: 28px;
+    stroke: var(--color-warning);
+    stroke-width: 1.5px;
+    fill: none;
+}
+
+.image-dropzone-text {
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    color: var(--color-warning-dark);
+}
+
+.image-preview-container {
+    display: none;
+    position: relative;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-top: var(--spacing-xs);
+    max-height: 150px;
+}
+
+.image-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-preview-remove {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-round);
+    background: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-base);
+}
+
+/* Moisture locks */
+.calc-lock-badge {
+    background: var(--color-success-alpha-8);
+    border: 1.5px solid var(--color-success-light);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.calc-lock-badge svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--color-success);
+    stroke-width: 1.75px;
+    fill: none;
+}
+
+.calc-lock-text {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-sm);
+    color: var(--color-success);
+    font-weight: 700;
+}
+
+/* Navigation Row */
+.wizard-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+}
+
+.wizard-nav .btn {
+    flex: 1;
+}
+
+/* =================================================================
+   PREPARED DESKTOP ENVIRONMENT
+   ================================================================= */
+@media (min-width: 1024px) {
+    /* Form row sits side-by-side in double columns on Desktop */
+    .form-row {
+        flex-direction: row;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .step-node {
+        width: 32px;
+        height: 32px;
+    }
+
+    .step-label {
+        /* Fluid design token is active */
+    }
+}
