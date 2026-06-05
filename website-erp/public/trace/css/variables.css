@@ -1,26 +1,26 @@
 /* Design System Variables - QR Traceability Page (Samudra Ecosystem Style) */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-    /* Coastal Marine Color Palette (HSL) - Synced with website-erp */
-    --color-primary-hue: 200;
-    --color-primary-sat: 95%;
-    --color-primary-lightness: 28%; /* #0284C7 (Samudra Sea Blue) */
+    /* Organic Deep Sea Green & Gold HSL Colors */
+    --color-primary-hue: 131;
+    --color-primary-sat: 46%;
+    --color-primary-lightness: 22%; /* #1E5128 (Deep Sea Green) */
     
     --color-primary: HSL(var(--color-primary-hue), var(--color-primary-sat), var(--color-primary-lightness));
-    --color-primary-light: HSL(var(--color-primary-hue), var(--color-primary-sat), 38%);
-    --color-primary-dark: HSL(var(--color-primary-hue), var(--color-primary-sat), 18%);
+    --color-primary-light: HSL(var(--color-primary-hue), var(--color-primary-sat), 32%);
+    --color-primary-dark: HSL(var(--color-primary-hue), var(--color-primary-sat), 14%);
     --color-primary-alpha-8: HSL(var(--color-primary-hue), var(--color-primary-sat), var(--color-primary-lightness), 0.08);
     --color-primary-alpha-15: HSL(var(--color-primary-hue), var(--color-primary-sat), var(--color-primary-lightness), 0.15);
 
-    --color-accent-hue: 195;
-    --color-accent-sat: 90%;
-    --color-accent-lightness: 43%; /* #0EA5E9 (Seafoam Sky Blue) */
+    --color-accent-hue: 37;
+    --color-accent-sat: 79%;
+    --color-accent-lightness: 58%; /* #E8AA42 (Gold / Amber) */
 
     --color-accent: HSL(var(--color-accent-hue), var(--color-accent-sat), var(--color-accent-lightness));
-    --color-accent-light: HSL(var(--color-accent-hue), var(--color-accent-sat), 53%);
-    --color-accent-dark: HSL(var(--color-accent-hue), var(--color-accent-sat), 33%);
+    --color-accent-light: HSL(var(--color-accent-hue), var(--color-accent-sat), 68%);
+    --color-accent-dark: HSL(var(--color-accent-hue), var(--color-accent-sat), 45%);
     --color-accent-alpha-8: HSL(var(--color-accent-hue), var(--color-accent-sat), var(--color-accent-lightness), 0.08);
     
     --color-warning-hue: 350;
@@ -40,21 +40,21 @@
     --color-success-light: HSL(var(--color-success-hue), var(--color-success-sat), 45%);
     --color-success-alpha-8: HSL(var(--color-success-hue), var(--color-success-sat), var(--color-success-lightness), 0.08);
 
-    /* Backgrounds & Surfaces */
-    --color-bg: HSL(210, 40%, 98%);      /* Soft Grey/White (#F8FAFC) */
-    --color-surface: HSL(0, 0%, 100%);
-    --color-surface-card: HSL(210, 30%, 99%);
-    --color-surface-glass: rgba(255, 255, 255, 0.85);
+    /* Backgrounds & Surfaces - Warm Cream/Light Sand */
+    --color-bg: HSL(36, 20%, 98%);      /* Warm Cream (#FAF8F5) */
+    --color-surface: HSL(36, 15%, 100%);
+    --color-surface-card: HSL(36, 15%, 99%);
+    --color-surface-glass: rgba(250, 248, 245, 0.85);
     
     /* Text Colors & Borders */
-    --color-text: HSL(215, 25%, 15%);    /* Slate Blue (#1E293B) */
-    --color-text-muted: HSL(215, 16%, 47%); /* Cool Muted Grey (#64748B) */
-    --color-text-on-primary: HSL(0, 0%, 100%);
-    --color-border: HSL(210, 20%, 94%);   /* light border (#F1F5F9) */
+    --color-text: HSL(215, 30%, 15%);    /* Deep Slate */
+    --color-text-muted: HSL(215, 12%, 40%);
+    --color-text-on-primary: HSL(36, 20%, 98%);
+    --color-border: HSL(36, 12%, 92%);   /* light cream border */
 
     /* Typography Settings */
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-family-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-family-heading: 'Playfair Display', Georgia, serif;
 
     /* Sizing & Borders */
     --radius-sm: 8px;

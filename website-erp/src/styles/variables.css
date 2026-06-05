@@ -3,33 +3,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-    /* Muted Coastal/Marine Color Palette (HSL) */
-    --color-primary-hue: 200;
-    --color-primary-sat: 95%;
-    --color-primary-lightness: 28%; /* #0284C7 (Seacell Sea Blue) */
+    /* Muted Coastal/Marine Color Palette (HSL) - Synced with specifications */
+    --color-primary-hue: 198;
+    --color-primary-sat: 82%;
+    --color-primary-lightness: 23%; /* #0A4D68 (Deep Ocean Blue) */
     
     --color-primary: HSL(var(--color-primary-hue), var(--color-primary-sat), var(--color-primary-lightness));
-    --color-primary-light: HSL(var(--color-primary-hue), var(--color-primary-sat), 38%);
-    --color-primary-dark: HSL(var(--color-primary-hue), var(--color-primary-sat), 18%);
+    --color-primary-light: HSL(var(--color-primary-hue), var(--color-primary-sat), 33%);
+    --color-primary-dark: HSL(var(--color-primary-hue), var(--color-primary-sat), 15%);
     --color-primary-alpha-8: HSL(var(--color-primary-hue), var(--color-primary-sat), var(--color-primary-lightness), 0.08);
     --color-primary-alpha-15: HSL(var(--color-primary-hue), var(--color-primary-sat), var(--color-primary-lightness), 0.15);
 
-    --color-accent-hue: 195;
+    --color-accent-hue: 187;
     --color-accent-sat: 90%;
-    --color-accent-lightness: 43%; /* #0EA5E9 (Seafoam Sky Blue) */
+    --color-accent-lightness: 31%; /* #088395 (Seafoam Green) */
 
     --color-accent: HSL(var(--color-accent-hue), var(--color-accent-sat), var(--color-accent-lightness));
-    --color-accent-light: HSL(var(--color-accent-hue), var(--color-accent-sat), 53%);
-    --color-accent-dark: HSL(var(--color-accent-hue), var(--color-accent-sat), 33%);
+    --color-accent-light: HSL(var(--color-accent-hue), var(--color-accent-sat), 41%);
+    --color-accent-dark: HSL(var(--color-accent-hue), var(--color-accent-sat), 21%);
     --color-accent-alpha-8: HSL(var(--color-accent-hue), var(--color-accent-sat), var(--color-accent-lightness), 0.08);
     
-    --color-warning-hue: 350;
-    --color-warning-sat: 89%;
-    --color-warning-lightness: 60%; /* #F43F5E (Coral Rose Red) */
+    --color-warning-hue: 0;
+    --color-warning-sat: 88%;
+    --color-warning-lightness: 64%; /* #F45050 (Coral Orange) */
 
     --color-warning: HSL(var(--color-warning-hue), var(--color-warning-sat), var(--color-warning-lightness));
-    --color-warning-light: HSL(var(--color-warning-hue), var(--color-warning-sat), 70%);
-    --color-warning-dark: HSL(var(--color-warning-hue), var(--color-warning-sat), 45%);
+    --color-warning-light: HSL(var(--color-warning-hue), var(--color-warning-sat), 74%);
+    --color-warning-dark: HSL(var(--color-warning-hue), var(--color-warning-sat), 50%);
     --color-warning-alpha-8: HSL(var(--color-warning-hue), var(--color-warning-sat), var(--color-warning-lightness), 0.08);
 
     --color-success-hue: 150;
@@ -41,7 +41,7 @@
     --color-success-alpha-8: HSL(var(--color-success-hue), var(--color-success-sat), var(--color-success-lightness), 0.08);
 
     /* Backgrounds & Surfaces */
-    --color-bg: HSL(210, 40%, 98%);      /* Super Soft Grey/White (#F8FAFC) */
+    --color-bg: HSL(216, 20%, 97%);      /* Soft Grey/White (#F4F6F9) */
     --color-surface: HSL(0, 0%, 100%);
     --color-surface-card: HSL(210, 30%, 99%);
     --color-surface-glass: rgba(255, 255, 255, 0.85);

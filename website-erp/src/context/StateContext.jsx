@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const StateContext = createContext();
 
-const STORAGE_KEY = 'website_erp_rumput_laut_data_react';
+const STORAGE_KEY = 'website_erp_rumput_laut_data_react_v2';
 
 const DEFAULT_BATCHES = [
     {
@@ -40,7 +40,7 @@ const DEFAULT_BATCHES = [
         tanggalPanen: '2026-05-25',
         pupuk: 'Kompos Pesisir Subur',
         iceIce: true,
-        iceIcePhoto: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23F45050" opacity="0.2"/><text x="50" y="55" font-family="sans-serif" font-size="12" fill="%23F45050" text-anchor="middle">Gejala Ice-Ice</text></svg>',
+        iceIcePhoto: '/trace/img/ice_ice_outbreak.png',
         beratBasah: 80,
         beratKering: 50,
         kadarAir: 37.5,

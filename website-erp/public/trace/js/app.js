@@ -26,11 +26,11 @@ const BATCH_DATABASE = {
         ],
         carouselImages: [
             {
-                url: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="270" viewBox="0 0 480 270"><rect width="480" height="270" fill="%230A4D68"/><circle cx="240" cy="135" r="80" fill="%23088395" opacity="0.3"/><text x="50%25" y="45%25" font-family="sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle">Solar Dome Dryer - Samudra</text><text x="50%25" y="60%25" font-family="sans-serif" font-size="12" fill="%230EA5E9" text-anchor="middle">Proses Pengeringan Higienis Bebas Debu Jalanan</text></svg>',
+                url: './img/solar_dome_a.png',
                 caption: 'Pengeringan higienis di dalam Solar Dome mekanis'
             },
             {
-                url: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="270" viewBox="0 0 480 270"><rect width="480" height="270" fill="%23088395"/><text x="50%25" y="45%25" font-family="sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle">Hasil Panen Premium - Grade A</text><text x="50%25" y="60%25" font-family="sans-serif" font-size="12" fill="%23FAF8F5" text-anchor="middle">Kadar air 31.0% teruji gravimetri presisi</text></svg>',
+                url: './img/seaweed_grade_a.png',
                 caption: 'Kualitas rumput laut Grade A premium kering siap packing'
             }
         ]
@@ -59,12 +59,12 @@ const BATCH_DATABASE = {
         ],
         carouselImages: [
             {
-                url: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="270" viewBox="0 0 480 270"><rect width="480" height="270" fill="%230A4D68"/><circle cx="240" cy="135" r="80" fill="%23088395" opacity="0.3"/><text x="50%25" y="45%25" font-family="sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle">Solar Dome Dryer - Sanur</text><text x="50%25" y="60%25" font-family="sans-serif" font-size="12" fill="%230EA5E9" text-anchor="middle">Pengeringan tertutup menjamin standar sanitasi internasional</text></svg>',
+                url: './img/solar_dome_b.png',
                 caption: 'Sarana Solar Dome higienis modern milik koperasi'
             },
             {
-                url: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="270" viewBox="0 0 480 270"><rect width="480" height="270" fill="%23088395"/><text x="50%25" y="45%25" font-family="sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle">Standar Grade B Teruji</text><text x="50%25" y="60%25" font-family="sans-serif" font-size="12" fill="%23FAF8F5" text-anchor="middle">Sangat ideal untuk pengolahan ekstraksi gelasi pangan</text></svg>',
-                caption: 'Kondisi fisik rumput laut kering siap kirim'
+                url: './img/seaweed_grade_b.png',
+                caption: 'Kondisi fisik rumput laut Grade B siap kirim'
             }
         ]
     },
@@ -92,7 +92,7 @@ const BATCH_DATABASE = {
         ],
         carouselImages: [
             {
-                url: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="270" viewBox="0 0 480 270"><rect width="480" height="270" fill="%23F43F5E" opacity="0.85"/><text x="50%25" y="45%25" font-family="sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle">Pemeriksaan Laboratorium</text><text x="50%25" y="60%25" font-family="sans-serif" font-size="12" fill="%23FAF8F5" text-anchor="middle">Terdeteksi degradasi patogen es-es (ice-ice)</text></svg>',
+                url: './img/ice_ice_outbreak.png',
                 caption: 'Laboratorium Koperasi mengonfirmasi gejala ice-ice'
             }
         ]
@@ -118,7 +118,7 @@ function initApp() {
         // Check Local Storage (if shared domain with website-erp)
         let batchData = null;
         try {
-            const localData = localStorage.getItem('website_erp_rumput_laut_data_react');
+            const localData = localStorage.getItem('website_erp_rumput_laut_data_react_v2');
             if (localData) {
                 const parsed = JSON.parse(localData);
                 const matched = parsed.find(b => b.id === batchId);
@@ -194,12 +194,22 @@ function formatLocalBatchData(raw) {
             { title: 'Pemanenan Panen', date: formatDate(raw.tanggalPanen), desc: `Panen batch seberat ${raw.beratBasah} kg disortir manual untuk jaminan mutu.` },
             { title: 'Pengeringan & QC Kunci', date: formatDate(raw.tanggalPanen), desc: `Pengeringan mekanis terkontrol pada suhu ${raw.suhuPengering || 38.0}°C mengunci kadar air di ${raw.kadarAir}%.` }
         ],
-        carouselImages: [
-            {
-                url: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="270" viewBox="0 0 480 270"><rect width="480" height="270" fill="%230A4D68"/><circle cx="240" cy="135" r="80" fill="%23088395" opacity="0.3"/><text x="50%25" y="45%25" font-family="sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle">Solar Dome Dryer - Samudra</text><text x="50%25" y="60%25" font-family="sans-serif" font-size="12" fill="%230EA5E9" text-anchor="middle">Proses Pengeringan Higienis Bebas Debu Jalanan</text></svg>',
-                caption: 'Proses pengeringan terkontrol di Solar Dome mekanis'
-            }
-        ]
+        carouselImages: (function() {
+            const defaultImages = {
+                'GRADE A': [
+                    { url: './img/solar_dome_a.png', caption: 'Proses pengeringan terkontrol di Solar Dome mekanis' },
+                    { url: './img/seaweed_grade_a.png', caption: 'Kualitas rumput laut Grade A premium kering siap packing' }
+                ],
+                'GRADE B': [
+                    { url: './img/solar_dome_b.png', caption: 'Sarana Solar Dome higienis modern milik koperasi' },
+                    { url: './img/seaweed_grade_b.png', caption: 'Kondisi fisik rumput laut Grade B siap kirim' }
+                ],
+                'REJECT': [
+                    { url: './img/ice_ice_outbreak.png', caption: 'Laboratorium Koperasi mengonfirmasi gejala ice-ice' }
+                ]
+            };
+            return defaultImages[gradeKey] || defaultImages['GRADE A'];
+        })()
     };
 }
 

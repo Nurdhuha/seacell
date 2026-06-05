@@ -24,10 +24,25 @@ const App = () => {
             <header>
                 <div className="logo-container" id="logo-branding">
                     {/* Modern minimalist double wave SVG logo */}
-                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M2 10c3 0 3 3 6 3s3-3 6-3 3 3 6 3 3-3 6-3M2 14c3 0 3 3 6 3s3-3 6-3 3 3 6 3 3-3 6-3"/>
                     </svg>
                     <span className="logo-text">SEACELL</span>
+                </div>
+                
+                {/* SVG Waves Animation */}
+                <div className="header-waves">
+                    <svg className="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 28" preserveAspectRatio="none">
+                        <defs>
+                            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                        </defs>
+                        <g className="parallax">
+                            <use href="#gentle-wave" x="48" y="0" fill="rgba(8, 131, 149, 0.12)" />
+                            <use href="#gentle-wave" x="48" y="3" fill="rgba(8, 131, 149, 0.20)" />
+                            <use href="#gentle-wave" x="48" y="5" fill="rgba(10, 77, 104, 0.08)" />
+                            <use href="#gentle-wave" x="48" y="7" fill="var(--color-bg)" />
+                        </g>
+                    </svg>
                 </div>
                 
                 <div className="user-profile" id="user-info-trigger">
